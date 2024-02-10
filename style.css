@@ -1,0 +1,431 @@
+/* Additional CSS styles */
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #fae1dd;
+    margin: 0;
+    padding: 0;
+}
+header {
+    text-align: center;
+    margin-bottom: 550px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.countup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.time {
+    text-align: center;
+}
+
+.countup-value {
+    display: block;
+    font-size: 36px;
+    font-weight: bold;
+    color: #f08080; /* Adjust color as needed */
+}
+
+.countup-label {
+    font-size: 18px;
+    color: #666; /* Adjust color as needed */
+}
+
+
+.container {
+    position: relative;
+}
+
+.valentines {
+    position: relative;
+    top: -380px; /* Adjust the top position to move the valentine card higher */
+    cursor: pointer;
+    animation: up 3s linear infinite;
+}
+
+@keyframes up{
+    0%, 100%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-30px);
+    }
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background: #f08080;
+    display: grid;
+    place-items: center;
+}
+
+.envelope::before {
+    content: '';
+    position: absolute;
+    width: 212px;
+    height: 212px;
+    background: #f08080;
+    transform: rotate(45deg);
+    top: -105px;
+    left: 44px;
+    border-radius: 30px 0 0 0;
+}
+
+.front {
+    position: absolute;
+    border-right: 180px solid #f4978e;
+    border-top: 95px solid transparent;
+    border-bottom: 100px solid transparent;
+    left: 120px;
+    top: 5px;
+    width: 0;
+    height: 0;
+    z-index: 10;
+}
+
+.front::before {
+    position: absolute;
+    content: '';
+    border-left: 300px solid #fda996;
+    border-top: 195px solid transparent;
+    left: -120px;
+    top: -95px;
+}
+
+.card {
+    position: relative;
+    width: 250px;
+    height: 180px;
+    background: #fff;
+    border-radius: 2px;
+    display: grid;
+    place-items: center;
+    transition: 1s;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 2px solid #003049;
+    border-style: dashed;
+}
+
+.valentines:hover .card {
+    transform: translateY(-100px);
+}
+
+.card .text {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 28px;
+    text-align: center;
+    line-height: 25px;
+    color: #003049;
+}
+
+.card .heart {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    background: red;
+    bottom: 20px;
+    transform: rotate(45deg);
+    border-radius: 50% 0 0 50%;
+}
+
+.card .heart::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: red;
+    border-radius: 0 50% 50% 0;
+    right: 0;
+    transform: rotate(-90deg);
+    transform-origin: top;
+}
+
+.card .heart::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: red;
+    right: -18px;
+}
+
+
+
+.valentines::before {
+    content: '';
+    position: absolute;
+    width: 330px;
+    height: 25px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .3);
+    top: 265px;
+    left: -15px;
+    animation: scale 3s linear infinite;
+}
+
+
+
+@keyframes scale {
+    0%, 100% {
+        transform: scaleX(1);
+    }
+
+    50% {
+        transform: scaleX(.85);
+    }
+}
+
+.hearts{
+    position: absolute;
+    top: 15px;
+}
+@keyframes heart{
+0%{
+    transform: translateY(0) rotate(-45def) scale(0.3);
+    opacity: 1;
+}
+100%{ transform: translateY(-150px) rotate(-45deg) scale(1.3);
+    opacity: 0.5;
+
+}
+}
+
+.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten{
+    background-color: red;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    margin: 0 10px;
+    position: relative;
+    transform: rotate(-45deg);
+    top: 50px;
+}
+
+.one:before, .one:after, .two:before, .two:after,.three:before, .three:after, .four:before, .four:after, .five:before, .five:after, .six:before, .six:after, .seven:before, .seven:after,.eight:before, .eight:after, .nine:before, .nine:after, .ten:before, .ten:after{
+    content: "";
+    background-color: red;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+}
+
+.one:before, .two:before,.three:before, .four:before, .five:before, .six:before, .seven:before,.eight:before, .nine:before, .ten:before{
+    top: -5px;
+    left: 0;
+}
+
+.one:after, .two:after,.three:after, .four:after, .five:after, .six:after, .seven:after,.eight:after, .nine:after, .ten:after{
+    left: 5px;
+    top: 0;
+
+}
+
+.one{
+    left: 10px;
+    animation: heart 1s ease-out infinite;
+}
+
+.two{
+    left: 30px;
+    animation: heart 2s ease-out infinite;
+}
+
+.three{
+    left: 50px;
+    animation: heart 1.5s ease-out infinite;
+}
+
+.four{
+    left: 70px;
+    animation: heart 2.3s ease-out infinite;
+}
+
+.five{
+    left: 80px;
+    animation: heart 1.7s ease-out infinite;
+}
+
+.six{
+    left: 60px;
+    animation: heart 3s ease-out infinite;
+}
+
+.seven{
+    left: 40px;
+    animation: heart 1.8s ease-out infinite;
+}
+
+.eight{
+    left: 20px;
+    animation: heart 3.4s ease-out infinite;
+}
+
+.nine{
+    left: 70px;
+    animation: heart 1.5s ease-out infinite;
+}
+
+.ten{
+    left: 90px;
+    animation: heart 3.9s ease-out infinite;
+}
+
+.front{
+    position: absolute;
+    border-right: 180px solid #f4978e;
+    border-top: 95px solid transparent;
+    border-bottom: 100px solid transparent;
+    left: 120px;
+    top: 5px;
+    width: 0;
+    height:0;
+    z-index: 10;
+}
+
+.front:before{
+    position: absolute;
+    content:"";
+    border-left: 300px solid #f8ad9d;
+    border-top: 195px solid transparent;
+    left: -120px;
+    top: -95px;
+    width: 0;
+    height: 0;
+}
+
+.shadow{
+    position: absolute;
+    width: 330px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.3);
+    top: 265px;
+    left: -15px;
+    z-index: -1;
+    animation: scale 3s linear infinite;
+}
+
+@keyframes scale{
+    0%, 100%{
+        transform: scaleX(1);
+    }
+    50%{
+        transform: scaleX(0.85);
+    }
+}
+
+.love-question {
+    text-align: center;
+    margin-top: -400px; /* Adjust the margin-top to move the question higher */
+    position: relative;
+    bottom: -100px; /* Adjust the distance from the bottom */
+    left: 0%; /* Position in the center horizontally */
+}
+
+.love-question p {
+    font-size: 24px; /* Adjust the font size as needed */
+    margin-bottom: 10px;
+}
+
+button {
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #ff6961;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff4730;
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .music {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 4vw;
+    right: 3.5vh;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.music-logo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+  
+  .music>.iconfont {
+    font-size: 19px;
+    color: #fff;
+    cursor: pointer;
+    animation: rotating 1.2s linear infinite;
+    animation-play-state: paused;
+  }
+  
+  .music>.iconfont.rotate {
+    animation-play-state: running;
+  }
+  
+  @keyframes rotating {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(1turn);
+    }
+  }
+
+  .hide {
+    display: none;
+  }
+  
+  .video {
+    width: 100%;
+    height: 100%;
+  }
+
+  .music-playing {
+    /* Add styling to indicate that music is playing, for example change background color or add animation */
+    background-color: rgba(0, 0, 0, 0.3); /* Example background color */
+}
+
+
+  
