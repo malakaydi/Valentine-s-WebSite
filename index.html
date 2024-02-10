@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add more CSS styles here if needed */
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body>
+
+    <div class="music" id="musicButton">
+        <img src="melody-logo.png" alt="Melody Logo" class="music-logo">
+        <audio class="audio" preload loop>
+            <source src="song.mp3" type="audio/mp3" />
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    <!-- Header -->
+    <header>
+        <h2>Time Spent Together</h2>
+        <div class="countup-container">
+            <div class="time">
+                <span id="years" class="countup-value">00</span>
+                <span class="countup-label">Years</span>
+            </div>
+            <div class="time">
+                <span id="months" class="countup-value">00</span>
+                <span class="countup-label">Months</span>
+            </div>
+            <div class="time">
+                <span id="days" class="countup-value">00</span>
+                <span class="countup-label">Days</span>
+            </div>
+            <div class="time">
+                <span id="hours" class="countup-value">00</span>
+                <span class="countup-label">Hours</span>
+            </div>
+            <div class="time">
+                <span id="minutes" class="countup-value">00</span>
+                <span class="countup-label">Minutes</span>
+            </div>
+            <div class="time">
+                <span id="seconds" class="countup-value">00</span>
+                <span class="countup-label">Seconds</span>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        
+        <div class="valentines" id="valentine-card">
+            <div class="envelope">
+                <div class="card">
+                    <div class="text">
+                        Happy <br> Valentine's <br> Day <br> ya Baby
+                    </div>
+                    <div class="heart"></div>
+                </div>
+                <div class="hearts">
+                    <div class="one"></div>
+                    <div class="two"></div>
+                    <div class="three"></div>
+                    <div class="four"></div>
+                    <div class="five"></div>
+                    <div class="six"></div>
+                    <div class="seven"></div>
+                    <div class="eight"></div>
+                    <div class="nine"></div>
+                    <div class="ten"></div>
+                </div>
+            </div>
+            <div class="front"></div>
+            <div class="shadow"></div>
+        </div>
+        <div class="love-question">
+            <p>How much do you love me?</p>
+            
+            <button id="yes-btn" onclick="increaseSize()">So Much</button>
+            <button id="no-more-btn" class="no" style="{{ p ? { position: 'absolute', top: p.x, right: p.y } : null }}" onclick="nope()" onmouseover="nope()">
+                Man7ebkch 😁
+            </button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+    function nope() {
+    const p = document.getElementById('no-more-btn');
+
+    // Calculate the width and height of the button
+    const buttonWidth = p.offsetWidth;
+    const buttonHeight = p.offsetHeight;
+
+    // Calculate the maximum allowed coordinates to keep the button within the viewport
+    const maxX = window.innerWidth - buttonWidth;
+    const maxY = window.innerHeight - buttonHeight;
+
+    // Calculate random coordinates within the visible area of the viewport
+    let x = Math.random() * maxX;
+    let y = Math.random() * maxY;
+
+    // Set the button's position
+    p.style.position = 'fixed'; // Use fixed positioning to keep the button within the viewport
+    p.style.left = x + 'px';
+    p.style.top = y + 'px';
+}
+
+    </script>
+
+<script>
+    // Set the date when you and your boyfriend met (June 6, 2018)
+    var startDate = new Date("June 6, 2018").getTime();
+    
+    // Update the countup every 1 second
+    var x = setInterval(function() {
+    
+      // Get the current date and time
+      var now = new Date().getTime();
+      
+      // Calculate the time difference in milliseconds
+      var timeDifference = now - startDate;
+      
+      // Calculate days, hours, minutes, and seconds
+      var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+      
+      // Display the result in the element with id="countup"
+      document.getElementById("countup").innerHTML = "Days: " + days + " | Hours: " + hours + " | Minutes: " + minutes + " | Seconds: " + seconds;
+      
+    }, 1000);
+    </script>
+    
+    </body>
+    </html>
