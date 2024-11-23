@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+       body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+    }
+
+        /* Background container for the mosaic */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-auto-rows: 150px;
+            gap: 5px;
+            z-index: -1;
+        }
+
+        /* Mosaic images */
+        .background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            border-radius: 15px;
+            transform: rotate(calc(var(--random-rotate, 0) * 1deg))
+                        scale(calc(var(--random-scale, 0)));
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            
+        }
+        .countup-label {
+    color: black;  /* Set the text color to black */
+    
+}
+.countup-value {
+    font-size: 4em;
+}
+        
+    </style>
+</head>
+
+<body>
+   
+
+    <!-- Background Container -->
+    
+
+    <div class="music" id="musicButton">
+        <img src="melody-logo.png" alt="Melody Logo" class="music-logo">
+        <audio class="audio" preload loop>
+            <source src="song.mp3" type="audio/mp3" />
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <h2>Time Spent Together</h2>
+        <div class="countup-container">
+            <div class="time">
+                <span id="years" class="countup-value">00</span>
+                <span class="countup-label">Years</span>
+            </div>
+            <div class="time">
+                <span id="months" class="countup-value">00</span>
+                <span class="countup-label">Months</span>
+            </div>
+            <div class="time">
+                <span id="days" class="countup-value">00</span>
+                <span class="countup-label">Days</span>
+            </div>
+            <div class="time">
+                <span id="hours" class="countup-value">00</span>
+                <span class="countup-label">Hours</span>
+            </div>
+            <div class="time">
+                <span id="minutes" class="countup-value">00</span>
+                <span class="countup-label">Minutes</span>
+            </div>
+            <div class="time">
+                <span id="seconds" class="countup-value">00</span>
+                <span class="countup-label">Seconds</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="valentines" id="valentine-card">
+            <div class="envelope">
+                <div class="card">
+                    <div class="text">
+                        Happy <br> Valentine's <br> Day <br> ya Baby
+                    </div>
+                    <div class="heart"></div>
+                </div>
+                <div class="hearts">
+                    <div class="one"></div>
+                    <div class="two"></div>
+                    <div class="three"></div>
+                    <div class="four"></div>
+                    <div class="five"></div>
+                    <div class="six"></div>
+                    <div class="seven"></div>
+                    <div class="eight"></div>
+                    <div class="nine"></div>
+                    <div class="ten"></div>
+                </div>
+            </div>
+            <div class="front"></div>
+            <div class="shadow"></div>
+        </div>
+        <div class="love-question">
+            <p>How much do you love me?</p>
+            
+            <button id="yes-btn" onclick="increaseSize()">So Much</button>
+            <button id="no-more-btn" class="no" style="{{ p ? { position: 'absolute', top: p.x, right: p.y } : null }}" onclick="nope()" onmouseover="nope()">
+                Man7ebkch 😁
+            </button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+    function nope() {
+    const p = document.getElementById('no-more-btn');
+
+    // Calculate the width and height of the button
+    const buttonWidth = p.offsetWidth;
+    const buttonHeight = p.offsetHeight;
+
+    // Calculate the maximum allowed coordinates to keep the button within the viewport
+    const maxX = window.innerWidth - buttonWidth;
+    const maxY = window.innerHeight - buttonHeight;
+
+    // Calculate random coordinates within the visible area of the viewport
+    let x = Math.random() * maxX;
+    let y = Math.random() * maxY;
+
+    // Set the button's position
+    p.style.position = 'fixed'; // Use fixed positioning to keep the button within the viewport
+    p.style.left = x + 'px';
+    p.style.top = y + 'px';
+}</script>
+
+<script>
+    // Set the date when you and your boyfriend met (June 6, 2018)
+    var startDate = new Date("June 6, 2018").getTime();
+    
+    // Update the countup every 1 second
+    var x = setInterval(function () {
+    var now = new Date().getTime();
+    var timeDifference = now - startDate;
+
+    var years = Math.floor(timeDifference / (1000 * 60 * 60 * 24 * 365));
+    var months = Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+    var days = Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+    document.getElementById("years").innerText = years;
+    document.getElementById("months").innerText = months;
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+}, 1000);
+    </script>
+
+
+
+<body>
+    <!-- Background Mosaic -->
+    <div class="background" id="background-container"></div>
+
+    
+    <script>
+        const container = document.getElementById('background-container');
+        const imageURLs = [
+    'assets/1.jpeg', 'assets/2.jpeg', 'assets/3.jpeg',
+    'assets/4.jpeg', 'assets/5.jpeg', 'assets/6.jpeg',
+    'assets/7.jpeg', 'assets/8.jpeg', 'assets/9.jpeg',
+    'assets/10.jpeg', 'assets/11.jpeg', 'assets/12.jpeg',
+    'assets/13.jpeg', 'assets/14.jpeg', 'assets/15.jpeg',
+    'assets/16.jpeg', 'assets/17.jpeg', 'assets/18.jpeg',
+    'assets/19.jpeg', 'assets/20.jpeg', 'assets/21.jpeg'
+];
+
+        // Get the viewport dimensions
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+
+        // Define image size (150px height and width as per CSS)
+        const imageSize = 150; // Adjust as per your grid-auto-rows and column size
+
+        // Calculate how many images are needed to fill the screen
+        const cols = Math.ceil(viewportWidth / (imageSize + 5)); // Include gap
+        const rows = Math.ceil(viewportHeight / (imageSize + 5)); // Include gap
+        const totalCells = cols * rows;
+
+        // Randomize and distribute the images
+        for (let i = 0; i < totalCells; i++) {
+            const img = document.createElement('img');
+            img.src = imageURLs[i % imageURLs.length]; // Loop through images
+            img.style.setProperty('--random-rotate', Math.random() * 20 - 10); // Random rotation
+            img.style.setProperty('--random-scale', Math.random() * 0.5 + 0.75); // Random scale
+            container.appendChild(img);
+        }
+
+        // Optional: Re-render mosaic on window resize
+        window.addEventListener('resize', () => {
+            container.innerHTML = ''; // Clear existing images
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const cols = Math.ceil(viewportWidth / (imageSize + 5));
+            const rows = Math.ceil(viewportHeight / (imageSize + 5));
+            const totalCells = cols * rows;
+
+            for (let i = 0; i < totalCells; i++) {
+                const img = document.createElement('img');
+                img.src = imageURLs[i % imageURLs.length];
+                img.style.setProperty('--random-rotate', Math.random() * 20 - 10);
+                img.style.setProperty('--random-scale', Math.random() * 0.5 + 0.75);
+                container.appendChild(img);
+            }
+        });
+    </script>
+</body>
+
+</html>
